@@ -68,10 +68,10 @@
             android:id="@+id/etDealSum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:drawableEnd="@drawable/ic_currency"
             android:drawablePadding="12dp"
-            android:hint="@string/deal_sum_label_hint" />
+            android:hint="@string/deal_sum_label_hint"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,9 +93,10 @@
             android:id="@+id/etDealDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
             android:drawableEnd="@drawable/ic_bx_calendar"
             android:drawablePadding="12dp"
+            android:focusableInTouchMode="false"
+            android:inputType="date"
             tools:text="30.05.2021" />
 
     </com.google.android.material.textfield.TextInputLayout>
