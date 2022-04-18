@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.lego.taxitest.R
 import com.lego.taxitest.databinding.FragmentMapBinding
 
@@ -94,7 +94,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 }
             }
         } catch (e: SecurityException) {
-//            Log.e("Exception: %s", e.message, e)
+            Log.e("Exception: %s", e.message, e)
         }
     }
 
@@ -126,12 +126,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
-        val sydney = LatLng(-34.0, 151.0)
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        map.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        map.moveCamera(CameraUpdateFactory.zoomTo(DEFAULT_ZOOM))
-
-
         // Prompt the user for permission.
         getLocationPermission()
 
@@ -152,6 +146,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 map.isMyLocationEnabled = true
                 map.uiSettings.isMyLocationButtonEnabled = true
                 setLocationButtonPosition()
+                getDeviceLocation()
             } else {
                 map.isMyLocationEnabled = false
                 map.uiSettings.isMyLocationButtonEnabled = false
@@ -159,7 +154,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 getLocationPermission()
             }
         } catch (e: SecurityException) {
-//            Log.e("Exception: %s", e.message, e)
+            Log.e("Exception: %s", e.message, e)
         }
     }
 
@@ -205,7 +200,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     companion object {
-        private const val DEFAULT_ZOOM = 15f
+        private const val DEFAULT_ZOOM = 18f
         private const val PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1
     }
 

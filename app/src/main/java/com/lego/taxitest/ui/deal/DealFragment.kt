@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.timepicker.MaterialTimePicker
 import com.lego.taxitest.R
 import com.lego.taxitest.databinding.FragmentDealBinding
 import com.lego.taxitest.ui.addDefaultTextChangedListener
@@ -56,8 +57,7 @@ class DealFragment : Fragment() {
         binding.btnSubmit.setOnClickListener {
             viewModel.addTransaction(
                 binding.etDealName.text.toString(),
-                binding.etDealSum.text.toString(),
-                binding.etDealDate.text.toString()
+                binding.etDealSum.text.toString()
             )
         }
 
@@ -94,11 +94,25 @@ class DealFragment : Fragment() {
                 val newDate = Date(it as Long)
                 calendar.time = newDate
                 setCurrentDateOnView(calendar)
+                setTimePicker(calendar)
             }
 
             picker.show(childFragmentManager, DATE_PICKER_TAG)
-
         }
+    }
+
+    private fun setTimePicker(calendar: Calendar) {
+        val timePicker = MaterialTimePicker
+            .Builder()
+            .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+            .build()
+
+        timePicker.addOnPositiveButtonClickListener {
+            viewModel.setTime(calendar, timePicker.hour, timePicker.minute)
+        }
+
+        timePicker.show(childFragmentManager, TIME_PICKER_TAG)
+
     }
 
     private fun setCurrentDateOnView(calendar: Calendar) {
@@ -120,6 +134,7 @@ class DealFragment : Fragment() {
 
     companion object {
         const val DATE_PICKER_TAG = "DATE_PICKER"
+        const val TIME_PICKER_TAG = "TIME_PICKER"
         const val DOT = "."
         const val ZERO = "0"
         const val TIME_ZONE_UTC = "UTC"
