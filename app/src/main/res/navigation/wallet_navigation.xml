@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wallet_navigation"
+    app:startDestination="@+id/nav_wallet">
+
+    <fragment
+        android:id="@+id/nav_wallet"
+        android:name="com.lego.taxitest.ui.wallet.WalletFragment"
+        tools:layout="@layout/fragment_wallet">
+        <action
+            android:id="@+id/action_nav_wallet_to_nav_deal"
+            app:destination="@id/nav_deal" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_deal"
+        android:name="com.lego.taxitest.ui.deal.DealFragment"
+        tools:layout="@layout/fragment_deal" />
+
+</navigation>

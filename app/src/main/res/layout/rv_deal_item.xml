@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/ivDealTypeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bx_credit_card_black"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvDealName"
+        style="@style/TextTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvCashValue"
+        app:layout_constraintStart_toEndOf="@+id/ivDealTypeIcon"
+        app:layout_constraintTop_toTopOf="@+id/ivDealTypeIcon"
+        tools:text="Оплата заказа" />
+
+    <TextView
+        android:id="@+id/tvCashValue"
+        style="@style/TextTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvDealName"
+        tools:text="+38$" />
+
+    <TextView
+        android:id="@+id/tvDateLabel"
+        style="@style/TextTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/date_label"
+        app:layout_constraintEnd_toStartOf="@+id/tvDate"
+        app:layout_constraintStart_toStartOf="@+id/tvDealName"
+        app:layout_constraintTop_toBottomOf="@+id/tvDealName" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        style="@style/TextTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCashValue"
+        tools:text="29 May" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

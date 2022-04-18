@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TaxiTest</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_header_title">Юлия Вермишелевская</string>
+    <string name="nav_header_subtitle">4.7</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_wallet">Кошелёк</string>
+    <string name="wallet_deal">Новая сделка</string>
+    <string name="deal_description_hint">Наименование сделки</string>
+    <string name="deal_description_label_hint">Введите назначение платежа</string>
+    <string name="deal_sum_hint">Сумма</string>
+    <string name="deal_sum_label_hint">Введите сумму</string>
+    <string name="deal_date_hint">Дата</string>
+    <string name="deal_label">Сделки</string>
+
+    <string name="date_label">Дата</string>
+    <string name="sum_value">%s ₴</string>
+    <string name="wallet_label_toolbar">Кошелёк</string>
+    <string name="deal_label_toolbar">Новая сделка</string>
+    <string name="add_label">Добавить</string>
+</resources>
