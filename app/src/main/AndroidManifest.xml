@@ -16,6 +16,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.TaxiTest.NoActionBar">
             <intent-filter>
@@ -27,6 +28,7 @@
 
         <activity
             android:name=".ui.wallet.WalletActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.TaxiTest.NoActionBar"
             android:exported="false" />
 
